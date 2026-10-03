@@ -12,10 +12,10 @@ public:
                 return 1;
             }
             else if(current>target){
-                col-=1;
+                col--;
             }
             else{
-                row+=1;
+                row++;
             }
         }
         return 0;
