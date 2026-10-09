@@ -4,10 +4,11 @@ public:
         int p1=0;
         int p2=numbers.size()-1;
         while(p1<p2){
-            if(numbers[p1]+numbers[p2]==target){
+            int sum=numbers[p1]+numbers[p2];
+            if(sum ==target){
                 break;
             }
-            else if(numbers[p1]+numbers[p2]>target){
+            else if(sum >target){
                 p2--;
             }
             else{
