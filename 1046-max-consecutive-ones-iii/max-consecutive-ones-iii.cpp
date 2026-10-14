@@ -11,7 +11,6 @@ public:
               while(freq>k){
                 if(nums[p1]==0) freq--;
                 p1++;
-                freq=count(nums.begin()+p1,nums.begin()+p2+1,0);
                 
               }
               maxsize=max(maxsize,p2-p1+1);
