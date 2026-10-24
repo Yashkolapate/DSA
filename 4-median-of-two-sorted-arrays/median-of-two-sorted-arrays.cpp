@@ -6,9 +6,6 @@ public:
             nums1.push_back(nums2[i]);
         }
         sort(nums1.begin(),nums1.end());
-        for(int x:nums1){
-            cout<<x<<endl;
-        }
        if(nums1.size()%2==0){
            int middle=(0+nums1.size()-1)/2;
            median=(double)(nums1[middle]+nums1[middle+1])/2;
