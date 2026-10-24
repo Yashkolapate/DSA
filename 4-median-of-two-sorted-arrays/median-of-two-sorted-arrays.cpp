@@ -10,8 +10,8 @@ public:
             cout<<x<<endl;
         }
        if(nums1.size()%2==0){
-           int middle=(0+nums1.size())/2;
-           median=(double)(nums1[middle]+nums1[middle-1])/2;
+           int middle=(0+nums1.size()-1)/2;
+           median=(double)(nums1[middle]+nums1[middle+1])/2;
        }
        else{
            int middle=(0+nums1.size())/2;
