@@ -1,0 +1,47 @@
+# c1_chaining.py - Hash table (size 10), division method, chaining
+SIZE = 10
+class ChainedHashTable:
+ def __init__(self):
+ self.table = [[] for _ in range(SIZE)]
+ def hash(self, key):
+ return key % SIZE # division method
+ def insert(self, key, value):
+ bucket = self.table[self.hash(key)]
+ for pair in bucket:
+ if pair[0] == key: # key exists: update value
+ pair[1] = value
+ return
+ bucket.append([key, value])
+ def search(self, key):
+ for k, v in self.table[self.hash(key)]:
+ if k == key:
+ return v
+ return None
+ def delete(self, key):
+ bucket = self.table[self.hash(key)]
+ for pair in bucket:
+ if pair[0] == key:
+ bucket.remove(pair)
+ return True
+ return False
+ def display(self):
+ for i, bucket in enumerate(self.table):
+ print(i, '->', ' -> '.join('(%d, %s)' % (k, v) for k, v in bucket) or 'empty')
+if __name__ == '__main__':
+ ht = ChainedHashTable()
+ while True:
+ print('\n1.Insert 2.Search 3.Delete 4.Display 5.Exit')
+ ch = input('Choice: ')
+ if ch == '1':
+ ht.insert(int(input('Key: ')), input('Value: '))
+ elif ch == '2':
+ v = ht.search(int(input('Key: ')))
+ print('Value:', v if v is not None else 'Key not found')
+ elif ch == '3':
+ print('Deleted.' if ht.delete(int(input('Key: '))) else 'Key not found.')
+ elif ch == '4':
+ ht.display()
+ elif ch == '5':
+ break
+ else:
+ print('Invalid choice.')
