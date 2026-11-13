@@ -5,7 +5,10 @@ public:
        int e=nums.size()-1;
        int mid=(s+e)/2;
        while(s<e){
-          if(nums[mid]>=nums[0] && nums[mid]>nums[nums.size()-1]){
+        if(nums[mid]>=nums[0] && nums[mid]<=nums[nums.size()-1]){
+            return nums[0];
+        }
+          else if(nums[mid]>=nums[0]){
                s=mid+1;
           } 
           else{
